@@ -28,4 +28,5 @@ jobs:
 
     - name: Push image to dockerhub
       run: |
+          echo "push $DOCKER_USER/$DOCKER_REPO_NAME: $(date +%s)"
           docker push $DOCKER_USER/$DOCKER_REPO_NAME: $(date +%s)
