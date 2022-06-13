@@ -28,4 +28,5 @@ jobs:
 
     - name: Push image to dockerhub
       run: |
-          docker push $DOCKER_USER/$DOCKER_REPO_NAME: 5.0
+          echo "Push image $DOCKER_USER/$DOCKER_REPO_NAME:5.0"
+          docker push $DOCKER_USER/$DOCKER_REPO_NAME:5.0
