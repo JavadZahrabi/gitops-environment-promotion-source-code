@@ -1,0 +1,50 @@
+name: staging_settings-replicate.yml
+
+on: 
+  push:
+    branches: [ "master" ]
+    paths:
+      - 'environment-variables/staging/staging_settings.yml'
+
+jobs:
+    replicate-file:
+        
+        runs-on: ubuntu-latest
+        name: Replicate staging_setting
+
+        steps:
+
+        - name: Checkout gitops-environment-promotion-source-code
+          uses: actions/checkout@v3
+          with:
+            path: ./gitops-environment-promotion-source-code
+
+        - name: Checkout gitops-environment-promotion-01
+          uses: actions/checkout@v3
+          with:
+            repository: JavadZahrabi/gitops-environment-promotion-01
+            token: ${{ secrets.ACTIONS_TOKEN }}
+            path: ./gitops-environment-promotion-01
+        
+        - name: Copy/Create file
+          run: |
+              FILE=./gitops-environment-promotion-source-code/environment-variables/staging/staging_settings.yml
+              if [ -f "$FILE" ]; then
+                echo "Copying $FILE"
+                cp -R ./gitops-environment-promotion-source-code/environment-variables/staging/staging_settings.yml ./gitops-environment-promotion-01/envs/staging
+              else
+                echo "Creating $FILE"
+                touch ./gitops-environment-promotion-01/envs/staging/staging_settings.yml
+              fi
+
+        - name: Push gitops-environment-promotion-01
+          run: |
+            cd ./gitops-environment-promotion-01
+            git add .
+            git config user.name JavadZahrabi
+            git config user.email ja.zahrabi@gmail.com
+            git commit -am "staging_setting.yml replicated from gitops-environment-promotion-source-code"
+            git push
+
+
+
