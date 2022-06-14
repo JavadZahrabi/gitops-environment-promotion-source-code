@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches: [ "master" ]
-    path-ignore:
+    paths-ignore:
       - 'environment-variables/**'
   pull_request:
     branches: [ "master" ]
