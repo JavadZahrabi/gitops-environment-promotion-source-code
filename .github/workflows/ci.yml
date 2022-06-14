@@ -5,6 +5,7 @@ on:
     branches: [ "master" ]
     paths-ignore:
       - 'environment-variables/**'
+      - '.github/workflows/**'
   pull_request:
     branches: [ "master" ]
 
