@@ -28,10 +28,10 @@ jobs:
         
         - name: Copy/Create file
           run: |
-              FILE=./gitops-environment-promotion-source-code/environment-variables/dev/dev_setting.yml
+              FILE=./gitops-environment-promotion-source-code/environment-variables/dev/dev_settings.yml
               if [ -f "$FILE" ]; then
                 echo "Copying $FILE"
-                cp -R ./gitops-environment-promotion-source-code/environment-variables/dev/dev_setting.yml ./gitops-environment-promotion-01/envs/dev
+                cp -R ./gitops-environment-promotion-source-code/environment-variables/dev/dev_settings.yml ./gitops-environment-promotion-01/envs/dev
               else
                 echo "Creating $FILE"
                 touch ./gitops-environment-promotion-01/envs/dev/dev_settings.yml
