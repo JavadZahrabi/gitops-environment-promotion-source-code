@@ -2,7 +2,7 @@ FROM golang:1.15.1-alpine3.12 AS build-env
 
 WORKDIR /tmp/simple-go-app
 
-COPY . .
+COPY /application/. .
 
 RUN CGO_ENABLED=0 GOOS=linux go build 
 
