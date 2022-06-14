@@ -31,7 +31,7 @@ jobs:
               FILE=./gitops-environment-promotion-source-code/environment-variables/prod/prod_settings.yml
               if [ -f "$FILE" ]; then
                 echo "Copying $FILE"
-                cp -R ./gitops-environment-promotion-source-code/environment-variables/prodd/prod_settings.yml ./gitops-environment-promotion-01/envs/prod
+                cp -R ./gitops-environment-promotion-source-code/environment-variables/prod/prod_settings.yml ./gitops-environment-promotion-01/envs/prod
               else
                 echo "Creating $FILE"
                 touch ./gitops-environment-promotion-01/envs/prod/prod_settings.yml
