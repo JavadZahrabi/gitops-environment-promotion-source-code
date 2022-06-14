@@ -41,8 +41,8 @@ jobs:
           run: |
             cd ./gitops-environment-promotion-01
             git add .
-            git config user.name github-actions
-            git config user.email github-actions@github.com
+            git config user.name JavadZahrabi
+            git config user.email ja.zahrabi@gmail.com
             git commit -am "dev_setting.yml replicated from gitops-environment-promotion-source-code"
             git push
 
