@@ -31,5 +31,3 @@ spec:
           value: "non-prod-user"
         - name: DB_PASSWORD
           value: "non-prod-password"
-        - name: "EXTERNAL_SYSTEM_HOST"
-          value: "dev.ext-system.com"
